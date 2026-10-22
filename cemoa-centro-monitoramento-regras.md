@@ -56,7 +56,7 @@
 - [Anexo A · Fontes externas](#anexo-a--fontes-externas)
 - [Anexo B · O que cada módulo grava](#anexo-b--o-que-cada-módulo-grava)
 - [Anexo C · Frequência de atualização](#anexo-c--frequência-de-atualização)
-- [Próxima atualização · Zonas de influência da chuva](#próxima-atualização--zonas-de-influência-da-chuva)
+- [Zonas de influência da chuva](#zonas-de-influência-da-chuva)
 - [Modelo para módulo novo](#modelo-para-módulo-novo)
 - [Histórico de alterações](#histórico-de-alterações)
 
@@ -1209,13 +1209,18 @@ excepcional de jornada e o aviso de 4 h ficam só no navegador. No SISPDEC devem
 
 ---
 
-## Próxima atualização · Zonas de influência da chuva
+## Zonas de influência da chuva
 
-➕ **Ainda não existe no sistema de origem.** Esta seção é a próxima grande
-atualização. Entra no projeto que já está no ar. Não cria um painel novo, não
-substitui as áreas de risco já cadastradas e não inventa estação, limiar ou
-polígono. Se um dado não existir, a tela diz a limitação e usa o que o sistema
-já tem.
+🔄 **Alterada em 22/10/2026.** A camada entrou no mapa do Painel de Alertas.
+Não cria um painel novo, não substitui as áreas de risco já cadastradas e não
+inventa estação, limiar ou polígono. Se um dado não existir, a tela diz a
+limitação e usa o que o sistema já tem.
+
+A geometria vigente fora de Manaus é um círculo de raio fixo, o mesmo para Moderado, Alto, Severo e Extremo. As opções são 5, 10 e 15 km; o padrão é 5 km. Onde o catálogo das PCDs do CEMADEN traz a coordenada, o ponto é esse. Nos demais municípios, o círculo usa a localidade que o mapa já usa ou, na falta dela, a sede municipal.
+
+Em Manaus o recorte é outro. O raio continua fixo e não cresce com o grau, mas a zona desenhada é a união dos bairros que cruzam esse raio e cuja cota mínima, medida na grade das curvas de nível SIRGAS 2000, não fica acima da cota da estação. O bairro inteiro não é tratado como se tivesse recebido o mesmo acumulado. Se a cota ou o bairro não fecharem o recorte, a zona volta ao círculo e a ficha diz isso.
+
+Círculo na sede, ou leitura sem hora ou com mais de 45 minutos, aparece na ficha como delimitação não confiável. A classificação reusa `rainApoio` e os limiares vigentes. Estação em Baixo não gera zona. A camada nasce desligada. PNG, KMZ e GeoJSON saem só quando o operador pede.
 
 A análise da chuva continua no Módulo 3. A distribuição espacial e a
 exportação entram no mapa do Módulo 1.
@@ -1339,7 +1344,7 @@ valendo a regra geral: nada é editável; exportar é consulta, não classifica�
 | --- | --- |
 | Resultado de chuva usado pela zona | o mesmo ritmo já vigente da Meteorologia e do CEMADEN |
 | Geometria da zona | quando chega observação válida nova |
-| Leitura velha ou insuficiente | não desenha zona confiável; a ficha diz a limitação |
+| Leitura velha ou insuficiente | desenha a estimativa e a ficha diz que a delimitação não é confiável |
 
 ### O que grava
 
@@ -1427,3 +1432,5 @@ aplica, escreva "não se aplica" em vez de apagar o item.
 | 22/10/2026 | CEMOA | Gerais | Expediente de outubro/2026: FC Karoline Pereira (09–16). Lenizia, Luan, Gustavo e Adriana no plantão. |
 | 22/10/2026 | CEMOA | Gerais | O relógio passou a aplicar a troca mensal e o turno 19–07. Em outubro/2026 a Karoline fica no expediente 09–16. Os outros meteorologistas veem Plantão 07–19 e, das 19 às 07, Plantão 19–07. A ordem da troca é Gustavo (novembro/2026), Adriana (dezembro), Lenizia (janeiro/2027), Luan (fevereiro) e de novo a Karoline. |
 | 22/10/2026 | CEMOA | Gerais | As escalas publicadas de outubro/2026 substituem a fila mensal. Meteorologia: Karoline no administrativo; turnos de 12 h nas equipes A Luan, B Lenizia, C Adriana e D Gustavo (1º turno DBAC, 2º turno CDBA). Alertas: 24 h das 07 às 07 nas equipes A Albarado, B Aldeci, C Galvão e D Andréia, com a modificação dos dias 13 e 14. Quem não está escalado vê folga; a equipe seguinte vê sobreaviso. |
+| 22/10/2026 | CEMOA | Painel de Alertas | Zonas de influência da chuva no mapa existente. A Meteorologia continua dona do acumulado e da intensidade. O Painel só desenha. Geometria preliminar: círculo de 5, 10 ou 15 km, igual em todos os graus, na posição que o mapa já usa para o pluviômetro. Sem limiar novo e sem alerta automático. Ficha, PNG enquadrado, KMZ e GeoJSON. |
+| 22/10/2026 | CEMOA | Painel de Alertas | Manaus passa a usar a coordenada do catálogo CEMADEN e o recorte pelos bairros abaixo da cota lida nas curvas de nível. O botão Pluviômetros CEMADEN volta a desenhar as estações quando a camada é ligada. |
