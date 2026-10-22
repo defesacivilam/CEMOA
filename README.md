@@ -1,12 +1,12 @@
 # CEMOA
 
-Regras de negócio do Centro de Monitoramento do CEMOA (Defesa Civil do
-Amazonas), mantidas pelo CEMOA e usadas pelo DDS para desenvolver o submódulo
-Centro de Monitoramento no SISPDEC.
+Documento mestre da plataforma do Centro de Monitoramento do CEMOA (Defesa
+Civil do Amazonas). A regra vale primeiro aqui. O sistema de origem
+(`cemoa-centro-operacoes`) e o submódulo do SISPDEC seguem este texto.
 
 - [Regras de negócio](cemoa-centro-monitoramento-regras.md): Painel de
-  Alertas, Boletim Hidrológico, Meteorologia e Gestão de Risco, com as
-  pendências de cada módulo.
+  Alertas, Boletim Hidrológico, Meteorologia e Gestão de Risco, as respostas
+  já dadas e a próxima atualização ainda não construída.
 
 A seção "Como usar este documento", no início do arquivo de regras, explica
 como alterar uma regra, responder uma pendência ou propor um módulo novo.

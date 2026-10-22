@@ -4,9 +4,10 @@
 > regras, e para o DDS (Setor de Desenvolvimento), que constrói o Centro de
 > Monitoramento como submódulo do SISPDEC.
 >
-> **O que ele é.** A ponte entre o CEMOA e o DDS. Aqui está o que cada tela faz,
-> de onde tira os dados, de quanto em quanto tempo atualiza, o que grava e cada
-> regra que hoje está fixa no sistema. Não fala de código.
+> **O que ele é.** O documento mestre da plataforma. A regra nasce aqui, antes
+> de ir para o sistema de origem ou para o SISPDEC. Descreve o que cada tela
+> faz, de onde tira os dados, de quanto em quanto tempo atualiza, o que grava
+> e cada regra vigente. Não fala de código.
 >
 > **O que ele não é.** Não é o manual visual. A designer do DDS vai adaptar o
 > layout; o que vale aqui é a regra, não a aparência.
@@ -14,7 +15,7 @@
 | Item | Valor |
 | --- | --- |
 | Sistema de origem | Aplicação do CEMOA (`cemoa-centro-operacoes`) |
-| Última conferência com o sistema de origem | 21/10/2026 (versão 9a7b1a7) |
+| Última conferência com o sistema de origem | 22/10/2026 (versão 0adae65) |
 | Destino | SISPDEC · submódulo Centro de Monitoramento |
 | Dono das regras | Geólogo do CEMOA |
 | Responsável pelo desenvolvimento | DDS |
@@ -55,6 +56,7 @@
 - [Anexo A · Fontes externas](#anexo-a--fontes-externas)
 - [Anexo B · O que cada módulo grava](#anexo-b--o-que-cada-módulo-grava)
 - [Anexo C · Frequência de atualização](#anexo-c--frequência-de-atualização)
+- [Próxima atualização · Zonas de influência da chuva](#próxima-atualização--zonas-de-influência-da-chuva)
 - [Modelo para módulo novo](#modelo-para-módulo-novo)
 - [Histórico de alterações](#histórico-de-alterações)
 
@@ -87,19 +89,46 @@ Usada em Chuva intensa, Alagamento, Movimento de massa e Erosão de margem
 A qualidade do ar usa escala própria (Boa → Péssima), descrita no Módulo 1.
 O Boletim Hidrológico usa só quatro graus (Baixo, Moderado, Alto, Severo).
 
-### Quem pode fazer o quê (hoje)
+### Quem pode fazer o quê
 
-- Consultar todas as telas: qualquer pessoa com acesso.
-- Classificar, desenhar manchas, lançar cota, emitir aviso: **qualquer operador
-  autenticado**. Hoje não há diferença entre perfis na hora de gravar.
-- Perfis conhecidos: Meteorologista plantonista, Geólogo (expediente), Chefe do
-  Centro e Operacional.
-- Até **6 operadores** conectados ao mesmo tempo no posto. Entrar com o mesmo
-  usuário em outro terminal transfere a sessão.
+🔄 Alterada em 22/10/2026.
+
+- Consultar todas as telas: qualquer pessoa com acesso. Consulta não exige login.
+- Classificar, desenhar ou apagar mancha, restaurar monitoramento, lançar cota,
+  emitir aviso de 12 h, emitir aviso de 4 h e gerar passagem de turno:
+  **qualquer operador autenticado**. O papel não trava produto.
+- No SISPDEC, um único papel de operador do Centro cobre essas gravações, até
+  este documento criar outra regra.
 - Na versão para celular, nada é editável: só consulta.
+- 🔄 Vários operadores entram ao mesmo tempo. O teto de 6 era limitação técnica
+  do sistema de origem, não regra do Centro. O sistema de origem ainda recusa
+  o sétimo login; isso deixa de valer quando a atualização for feita.
+- Classificar e editar continua exigindo operador autenticado.
 
-> No SISPDEC, cada ação vira uma permissão própria, configurável no controle de
-> acesso (ver pendência G1).
+**Papéis no cadastro:** meteorologista plantonista, meteorologista expediente,
+geólogo de expediente, chefe, subchefe, operacional e operador IDAP (Interface
+de Divulgação de Alertas Públicos). O sistema de origem ainda só conhece
+meteorologista plantonista, geólogo de expediente, chefe e operacional.
+
+**Quadro e jornada** (horário de Manaus):
+
+| Seção | Quem | Jornada |
+| --- | --- | --- |
+| Chefe | CAP. QOABM Charlie Barroso | 09–16 |
+| Subchefe | Sgt QCPBM Hirana | 09–16 |
+| Adaptação às Mudanças Climáticas | SD QOPM Ananda | 09–16 |
+| Monitoramento · meteorologia | FC Luan (A), FC Lenizia (B), FC Adriana (C), FC Gustavo (D). FC Karoline Pereira no administrativo o mês inteiro | Outubro/2026, escala publicada. 1º turno 07–19, repetindo D B A C. 2º turno 19–07, repetindo C D B A, e acaba às 07 do dia seguinte. Em 22/10: Lenizia 07–19 e Gustavo 19–07. Luan e Adriana de folga. Fora de outubro o relógio ainda não tem a escala do mês |
+| Monitoramento · geologia | FC Igor Jacaúna, FC Thayná Nascimento | 09–16 |
+| Alertas · operadores IDAP | Equipe A Sgt Albarado, B Sgt Aldeci Reis, C Sgt Galvão, D Sgt Andréia Amorim | Outubro/2026: serviço de 24 h, das 07 às 07, na ordem A B C D. Sobreaviso é a equipe seguinte. Em 13/10 o Albarado fica até 23h30 e a Aldeci assume; em 14/10 a Aldeci fica até 19h e o Galvão assume até 07h de 15/10. Em 22/10 o serviço é o Galvão e o sobreaviso é a Andréia |
+
+O relógio de outubro/2026 segue as escalas publicadas. A Karoline fica no
+expediente 09–16 o mês inteiro. Nos outros quatro meteorologistas, só quem
+está no turno do dia vê 07–19 ou 19–07; os demais veem folga.
+O 2º turno do dia acaba às 07 da manhã seguinte. Na Seção de Alertas o serviço
+é de 24 h, das 07 às 07, e o militar da equipe seguinte fica de sobreaviso. A
+escala modificada vale nos dias 13 e 14 de outubro. O mês seguinte entra no
+relógio quando a escala daquele mês for publicada. O horário excepcional
+continua só no navegador até o SISPDEC gravar no servidor.
 
 ### Comportamentos comuns
 
@@ -122,10 +151,10 @@ O Boletim Hidrológico usa só quatro graus (Baixo, Moderado, Alto, Severo).
 
   Fonte nunca consultada aparece como indisponível; isso não prova que o órgão
   está fora do ar.
-- **Aviso global de qualidade do ar crítica.** Em todas as telas, uma faixa no
+- 🔄 **Aviso global de qualidade do ar crítica.** Em todas as telas, uma faixa no
   topo lista os municípios com qualidade do ar **Muito Ruim ou Péssima** (pior
-  sensor). Atualiza a cada 60 s. O operador pode recolher; ela volta sozinha se
-  a lista de municípios ou os graus mudarem.
+  sensor). Atualiza a cada 60 s. Fica **7 segundos** e some sozinha. O operador
+  pode recolher antes. Ela volta se a lista de municípios ou os graus mudarem.
 - 🔄 **Aviso global de acumulado de chuva.** Em todas as telas, uma faixa no
   topo lista os municípios em que o acumulado medido já atinge **Alto, Severo
   ou Extremo** pelos limiares de **Alagamento (1 h)** ou de **Movimento de massa
@@ -138,38 +167,63 @@ O Boletim Hidrológico usa só quatro graus (Baixo, Moderado, Alto, Severo).
   Extremo** pelos limiares de **Chuva intensa** (Severo: ≥ 40 mm/1 h ou ≥ 60 mm/6 h;
   Extremo: ≥ 60 mm/1 h ou ≥ 90 mm/6 h). Se sim, toca três bipes e mostra uma
   notificação com os municípios. Toca **uma vez por município e grau** enquanto
-  o navegador estiver aberto. O som vem ligado; o operador pode silenciar e há
-  um botão **Testar som** (desktop), que toca o aviso e fala "teste de som".
+  o navegador estiver aberto; se a chuva continuar no mesmo grau, não repete.
+  O som vem ligado; o operador pode silenciar. Não há botão de teste. Nenhum
+  outro evento toca (nem vencimento, nem ar Péssima, nem alagamento).
 - 🔄 **Relógio de jornada** (cabeçalho do Painel de Alertas). Mostra a jornada
   do operador conectado, o tempo que falta e se está antes, em curso ou
-  encerrada (horário de Manaus). Padrão: **Plantão 07–19** para meteorologista;
-  **Expediente 09–16** para os demais perfis. O operador pode registrar um
-  horário excepcional (início e fim em horas cheias, mínimo de 1 h), que fica
-  marcado como excepcional.
-- **Sala de situação.** Modo de tela cheia (só desktop) que esconde cabeçalho,
-  lista e rodapé, deixando o mapa, os totais por grau com a ação correspondente
-  e a faixa de alertas. Sai com o botão Operação ou Esc.
+  encerrada (horário de Manaus). Em outubro/2026 o nome vem da escala do dia:
+  meteorologista no 1º turno **07–19**, no 2º turno **19–07**, no administrativo
+  **09–16**, ou folga. Na Seção de Alertas, serviço de **24 h** (07–07) ou
+  sobreaviso. Chefe, subchefe, geólogo e Adaptação às Mudanças Climáticas
+  permanecem no expediente **09–16**. O operador pode registrar um horário
+  excepcional no expediente e no plantão de 12 h. Esse ajuste fica só no
+  navegador até o SISPDEC gravar no servidor.
+- 🔄 **Sala de situação.** Modo de tela cheia (só desktop) que esconde cabeçalho,
+  lista e rodapé. Os totais por grau ficam numa faixa no topo do mapa, sem
+  repetir a mesma contagem na legenda. A legenda guarda só o que o topo não
+  mostra (aviso INMET, vento, focos, limiares de alagamento, setores R3/R4,
+  sem leitura). Os três municípios de maior grau ficam numa linha, abaixo do
+  botão de níveis de risco. Sai com o botão Operação ou Esc.
 - **Exportação em PNG.** Os mapas oficiais são exportados como composição
   própria (não é print da tela), com rosa dos ventos, escala gráfica, legenda,
   fonte e horário de Manaus.
 
 ### Pendências gerais
 
-- ❓ **G1 — Permissões por ação.** No SISPDEC, quem pode: classificar cada
+- ✅ **G1 — Permissões por ação.** No SISPDEC, quem pode: classificar cada
   produto do painel, desenhar/apagar mancha, restaurar monitoramento, lançar
   cota no boletim, emitir aviso de 12 h, emitir aviso de 4 h, gerar passagem de
   turno? Hoje qualquer operador logado faz tudo.
-- ❓ **G2 — Equipe do plantão.** O sistema de origem tem a equipe fixa no
+  **Resposta do CEMOA:** Mantém-se assim. Qualquer operador autenticado faz
+  todas essas gravações. Consulta não exige login. No celular nada é editável.
+  O papel não trava produto. No SISPDEC, um único papel de operador do Centro
+  cobre essas ações até este documento criar outra regra.
+- ✅ **G2 — Equipe do plantão.** O sistema de origem tem a equipe fixa no
   sistema (cinco meteorologistas no plantão, dois geólogos no expediente e o
   chefe do Centro). No SISPDEC a equipe vem do cadastro de usuários. Basta
   marcar quem é do plantão, ou há outra regra?
-- ❓ **G3 — Limite de 6 operadores simultâneos.** Continua sendo uma regra do
+  **Resposta do CEMOA:** Basta o papel no cadastro: meteorologista plantonista,
+  meteorologista expediente, geólogo de expediente, chefe, subchefe,
+  operacional ou operador IDAP. O quadro e o horário de cada um estão em
+  "Quem pode fazer o quê".
+- ✅ **G3 — Limite de 6 operadores simultâneos.** Continua sendo uma regra do
   Centro ou era limitação técnica?
-- ❓ **G4 — Jornada.** A jornada padrão do meteorologista é Plantão 07–19, mas
-  o aviso de 12 h trabalha com turno diurno (07–19) e noturno (19–07). Existe
-  jornada noturna para o relógio? O Expediente 09–16 vale para geólogo, chefe e
-  operacional? O horário excepcional precisa ficar registrado (hoje fica só no
-  navegador)?
+  **Resposta do CEMOA:** Era limitação técnica. Vários operadores entram ao
+  mesmo tempo. Edição e classificação só podem ser feitas por operador
+  autenticado.
+- ✅ **G4 — Jornada.** A jornada do meteorologista plantonista é 07–19; em
+  seguida outro plantonista assume 19–07. Existe jornada noturna para o
+  relógio? O expediente 09–16 vale para geólogo, chefe e operacional? O
+  horário excepcional precisa ficar registrado (hoje fica só no navegador)?
+  **Resposta do CEMOA:** Sim, o relógio tem jornada noturna. Em outubro/2026 a
+  escala publicada manda: Karoline no expediente 09–16; os outros
+  meteorologistas no 1º turno 07–19 ou no 2º turno 19–07, conforme o dia, e
+  folga quando não estão escalados. A Seção de Alertas faz 24 h, das 07 às 07,
+  com sobreaviso da equipe seguinte. Os dias 13 e 14 de outubro seguem a
+  escala modificada. O mês seguinte entra quando a escala for publicada. O
+  horário excepcional continua só no navegador até o SISPDEC gravar no
+  servidor.
 
 ---
 
@@ -332,9 +386,12 @@ Ao clicar num município:
 
 - Grau atual, ação, cronômetro e "Classificado por" (operador ou automático, com
   a fonte).
-- Uma linha-resumo: grau · mm (ou MP2,5) · temperatura · cota · validade.
+- Uma linha-resumo: grau · mm (ou MP2,5) · temperatura · validade.
+- 🔄 A cota aparece em linha própria: valor em metros (ou "sem leitura") e a
+  calha. Não traz o grau de inundação do boletim. O fenômeno de chuva no
+  painel chama-se Alagamento; inundação é o cenário do Boletim Hidrológico.
 - Texto de situação e riscos associados (ex.: chuva intensa na última hora,
-  inundação no grau X do boletim, estiagem).
+  estiagem). O grau de inundação fica no boletim, pelo link "Cota no boletim".
 - **Chuva CEMADEN por estação** (1 h, 6 h, 24 h, 72 h e 96 h), com link para o
   gráfico oficial do pluviômetro.
 - **Qualidade do ar por monitor** (no produto de incêndio).
@@ -361,14 +418,17 @@ Ao clicar num município:
 - No mapa de chuva, município **sem estação** fica cinza e não conta como Baixo.
 - **Focos de calor não mudam o grau de qualidade do ar** no painel; são camada
   de contexto (mas entram no cálculo de risco, Módulo 4).
-- 🔄 **Vento:** setas sobre uma grade de pontos do modelo que cobre o
+- 🔄 **Vento:** marcas sobre uma grade de pontos do modelo que cobre o
   Amazonas (cerca de 2,2° de latitude por 3,2° de longitude; pontos a mais de
-  170 km de qualquer sede ficam de fora). **A seta aponta para onde o vento
-  sopra.** Cor pela velocidade: azul abaixo de 10 km/h, laranja de 10 a 25 km/h,
-  vinho acima de 25 km/h. A legenda mostra a hora do dado. É vento previsto
-  pelo modelo, não medido.
+  170 km de qualquer sede ficam de fora). **Os traços correm para onde o vento
+  sopra agora.** Vento mais forte completa o ciclo mais depressa. Quem pede
+  menos movimento no sistema vê a marca parada. Cor pela velocidade: azul
+  abaixo de 10 km/h, laranja de 10 a 25 km/h, vinho acima de 25 km/h. A
+  legenda mostra a hora do dado. É vento do modelo, não medido.
 - No produto Incêndio, a legenda explica: a cor do município é a classificação
-  do ar e o ponto é o MP2,5 do sensor.
+  do ar e o ponto é o MP2,5 do sensor. Na sala de situação essa frase de cor
+  não se repete, porque a faixa do topo já mostra os graus; fica a frase do
+  ponto.
 
 ### Passagem de plantão
 
@@ -433,50 +493,86 @@ interno da operação" e numeração de páginas.
 
 ### Pendências do Painel de Alertas
 
-- ❓ **P1.1 — Faixas de MP2,5.** O sistema usa 0–12 / 12,1–35,4 / 35,5–55,4 /
+- ✅ **P1.1 — Faixas de MP2,5.** O sistema usa 0–12 / 12,1–35,4 / 35,5–55,4 /
   55,5–150,4 / >150,4 (padrão PurpleAir). A documentação antiga do CEMOA dizia
   0–15 / 15–50 / 50–75 / 75–125 / >125. Qual vale?
-- ❓ **P1.2 — Operador x sensor na Qualidade do ar.** Hoje, se o sensor estiver
+  **Resposta do CEMOA:** Vale a faixa do sistema (PurpleAir). A faixa antiga
+  não vale.
+- ✅ **P1.2 — Operador x sensor na Qualidade do ar.** Hoje, se o sensor estiver
   pior que o grau do operador, o mapa mostra o sensor (o operador não consegue
   manter um grau abaixo do sensor). A documentação antiga diz que "o operador
   prevalece sobre o sensor". Qual é a regra?
-- ❓ **P1.3 — Duração sugerida do Extremo.** A Portaria indica 1 h para Extremo,
+  **Resposta do CEMOA:** O mapa mostra o pior entre operador e sensor. O
+  operador pode elevar acima do sensor. Se o sensor ficar pior, o mapa sobe
+  para o sensor. O operador não segura um grau abaixo do sensor.
+- ✅ **P1.3 — Duração sugerida do Extremo.** A Portaria indica 1 h para Extremo,
   mas a duração sugerida na hora de classificar é 2 h. Manter 2 h ou 1 h?
-- ❓ **P1.4 — Duração de 12 h.** O sistema oferece 12 h entre as opções; a
+  **Resposta do CEMOA:** A sugestão na classificação continua 2 h para
+  Extremo. A 1 h da Portaria só entra quando ninguém escolhe duração.
+- ✅ **P1.4 — Duração de 12 h.** O sistema oferece 12 h entre as opções; a
   documentação antiga não lista. Manter?
-- ❓ **P1.5 — Alerta vencido x mancha vencida.** O alerta do município vencido
+  **Resposta do CEMOA:** Manter 12 h na lista.
+- ✅ **P1.5 — Alerta vencido x mancha vencida.** O alerta do município vencido
   continua pintado até o operador agir, mas a mancha vencida some sozinha. É
   intencional?
-- ❓ **P1.6 — Chuva intensa automática.** Hoje os limiares de chuva intensa só
+  **Resposta do CEMOA:** Sim. O alerta do município permanece até o operador.
+  A mancha some ao vencer.
+- ✅ **P1.6 — Chuva intensa automática.** Hoje os limiares de chuva intensa só
   sugerem na fila. Deve continuar só sugestão, ou passar a pintar como
   Alagamento e Movimento de massa?
-- ❓ **P1.7 — Extremo automático.** Alagamento e Movimento de massa sobem no
+  **Resposta do CEMOA:** Continua só sugestão na fila e no som. Não pinta o
+  mapa. Quem pinta Chuva intensa é o operador.
+- ✅ **P1.7 — Extremo automático.** Alagamento e Movimento de massa sobem no
   máximo até Severo. Há limiar para Extremo?
-- ❓ **P1.8 — Erosão de margem sem gatilho.** O produto é 100% manual. Deve usar
+  **Resposta do CEMOA:** Não há limiar automático de Extremo. Extremo é só do
+  operador.
+- ✅ **P1.8 — Erosão de margem sem gatilho.** O produto é 100% manual. Deve usar
   algum dado (velocidade de descida do rio, grau de estiagem do boletim)?
-- ❓ **P1.9 — Atualização das listas de sensores.** Quem mantém a lista de
+  **Resposta do CEMOA:** Continua sem gatilho automático. Cota e grau de
+  estiagem não pintam erosão.
+- ✅ **P1.9 — Atualização das listas de sensores.** Quem mantém a lista de
   sensores com defeito e de sensores âncora, e com que frequência? No SISPDEC
   isso pode virar cadastro na tela.
-- ❓ **P1.10 — Base de setores de risco.** A lista de municípios com setor
+  **Resposta do CEMOA:** As listas vigentes estão no sistema: defeito
+  `MPAM_BCA_01_PROMOTORIA`; âncora `SEMA_DCAM_44` para Nhamundá. Quem inclui
+  ou tira é o CEMOA, por alteração deste documento. Não há rotina periódica.
+  No SISPDEC pode virar cadastro, com a mesma lista de partida.
+- ✅ **P1.10 — Base de setores de risco.** A lista de municípios com setor
   mapeado (39) vem de arquivo fixo SGB/CPRM. Qual a data dessa base e quem avisa
   quando sair atualização?
-- ❓ **P1.11 — Município sem pluviômetro.** São Sebastião do Uatumã segue sem
+  **Resposta do CEMOA:** A base vigente é o recorte operacional CEMOA ·
+  SGB/CPRM de setores mapeados (deslizamento, movimento de massa ou erosão de
+  margem). O arquivo não traz data de vigência. Quem avisa atualização é o
+  CEMOA (geologia), substituindo o arquivo e registrando a data neste
+  documento. Ausência de mapeamento não significa ausência de risco residual.
+- ✅ **P1.11 — Município sem pluviômetro.** São Sebastião do Uatumã segue sem
   CEMADEN e sem estação ANA de reserva. Existe outra fonte para ele?
-- ❓ **P1.12 — Faixa de acumulado x setor mapeado.** A faixa global de
+  **Resposta do CEMOA:** Não há outra fonte ligada. O município segue sem
+  leitura de chuva até este documento apontar uma estação real.
+- ✅ **P1.12 — Faixa de acumulado x setor mapeado.** A faixa global de
   acumulado lista Movimento de massa em **qualquer** município que passe do
   limiar de 24 h, mesmo **sem setor de risco mapeado**. Já a classificação
   automática do mapa só sobe onde há setor mapeado. A faixa deve seguir a mesma
   regra do mapa?
-- ❓ **P1.13 — Som só para chuva severa.** Desde 21/10/2026 o vencimento de
+  **Resposta do CEMOA:** As duas ficam diferentes. A faixa avisa qualquer
+  município acima do limiar de 24 h. O mapa só sobe Movimento de massa onde há
+  setor mapeado.
+- ✅ **P1.13 — Som só para chuva severa.** Desde 21/10/2026 o vencimento de
   alerta e o fim do aviso de 12 h não tocam mais som; só a chuva severa toca. É
   intencional? Algum outro evento deve tocar (ex.: ar Péssima, acumulado de
   alagamento)?
-- ❓ **P1.14 — Repetição do som.** O som toca uma vez por município e grau
+  **Resposta do CEMOA:** É intencional. Só a chuva intensa em Severo ou
+  Extremo toca. Ar Péssima, alagamento e vencimento não tocam.
+- ✅ **P1.14 — Repetição do som.** O som toca uma vez por município e grau
   enquanto o navegador está aberto; se a chuva continuar severa, não repete. No
   SISPDEC, deve repetir de tempos em tempos enquanto a condição durar?
-- ❓ **P1.15 — Vento previsto.** O vento vem do modelo Open-Meteo (não é
+  **Resposta do CEMOA:** Não repete enquanto o mesmo município permanecer no
+  mesmo grau. Um grau novo volta a tocar.
+- ✅ **P1.15 — Vento previsto.** O vento vem do modelo Open-Meteo (não é
   medição) e aparece só no produto Incêndio. O CEMOA aceita essa fonte? Deve
   aparecer em outros produtos (ex.: Chuva intensa)?
+  **Resposta do CEMOA:** Aceita o Open-Meteo só no Incêndio, com os traços
+  animados na direção em que sopra. Não entra nos outros produtos.
 
 ---
 
@@ -493,8 +589,9 @@ Também gera o mapa oficial em PNG de estiagem e de inundação.
 
 - **Seletor de cenário:** Estiagem (vazante) ou Inundação (enchente). O mapa,
   os totais e a lista mudam conforme o cenário.
-- **Totais por grau:** Baixo, Moderado, Alto, Severo, com leitura e sem
-  leitura.
+- 🔄 **Totais por grau:** Baixo, Moderado, Alto, Severo, com leitura e sem
+  leitura. O rodapé de cada um desses cartões mostra só a porcentagem do
+  recorte. O cartão de municípios mostra Total ou Recorte.
 - **Mapa** dos municípios pelo grau do cenário escolhido.
 - **Lista por calha**, ordenada dentro da calha do pior grau para o melhor.
 - **Linha do tempo** para voltar até 6 dias atrás.
@@ -591,24 +688,45 @@ gráfico da série com as linhas de referência e a projeção.
 
 ### Pendências do Boletim Hidrológico
 
-- ❓ **P2.1 — Grau automático pela cota.** Hoje o grau não muda com a cota; só
+- ✅ **P2.1 — Grau automático pela cota.** Hoje o grau não muda com a cota; só
   com o boletim base ou lançamento manual. Deve ser calculado comparando a cota
   do dia com as cotas de referência? Se sim, como tratar os 39 municípios sem
   referência?
-- ❓ **P2.2 — Origem oficial do grau no SISPDEC.** O boletim base do sistema de
+  **Resposta do CEMOA:** A cota não recalcula o grau. O grau é o do boletim
+  base ou o lançado pelo operador. Município sem referência continua sem
+  leitura de grau automático.
+- ✅ **P2.2 — Origem oficial do grau no SISPDEC.** O boletim base do sistema de
   origem está parado em 01/09/2026. No SISPDEC, quem informa o grau oficial
   diário e em que tela? (O SISPDEC já tem cadastro de cotas por calha no
   módulo CEMOA; confirmar se é o mesmo dado.)
-- ❓ **P2.3 — Escala sem Extremo.** O boletim usa quatro graus e o painel cinco.
+  **Resposta do CEMOA:** No sistema de origem o grau oficial é o boletim base
+  (referência 01/09/2026) mais o lançamento do operador. A cota ao vivo não
+  vira grau. No SISPDEC o grau oficial continua vindo desse boletim do CEMOA.
+  O cadastro de cotas por calha é a leitura, não uma segunda escala de grau.
+- ✅ **P2.3 — Escala sem Extremo.** O boletim usa quatro graus e o painel cinco.
   Confirmar que inundação e estiagem não têm Extremo.
-- ❓ **P2.4 — Projeção de +3/+5/+7 dias.** A reta simples sobre 5 pontos é aceita
+  **Resposta do CEMOA:** Confirmado. Inundação e estiagem têm Baixo,
+  Moderado, Alto e Severo, mais sem leitura. Não têm Extremo.
+- ✅ **P2.4 — Projeção de +3/+5/+7 dias.** A reta simples sobre 5 pontos é aceita
   pelo CEMOA como apoio ao plantão, ou deve sair da tela?
-- ❓ **P2.5 — Prioridade da cota.** Confirmar a ordem: boletim < Power BI < ANA
+  **Resposta do CEMOA:** Permanece na ficha da estação como apoio, não como
+  previsão oficial. Exige pelo menos três leituras e usa os últimos cinco
+  pontos.
+- ✅ **P2.5 — Prioridade da cota.** Confirmar a ordem: boletim < Power BI < ANA
   < operador.
-- ❓ **P2.6 — "Mudanças em 24 h".** A tela tem uma área de mudanças das últimas
+  **Resposta do CEMOA:** Confirmada. A última da lista vence, nesta ordem:
+  boletim base, Power BI (cota mais próxima das 07:00), telemetria ANA do dia,
+  lançamento do operador.
+- ✅ **P2.6 — "Mudanças em 24 h".** A tela tem uma área de mudanças das últimas
   24 h que hoje está sempre vazia. O que ela deve listar?
-- ❓ **P2.7 — Cenário padrão.** Qual cenário a tela abre por padrão (estiagem ou
+  **Resposta do CEMOA:** Lista mudanças de grau oficial do boletim (município,
+  estiagem ou inundação, de qual grau para qual). Está vazia porque o boletim
+  base não tem linhas nessa lista, não porque a área não tenha função. Sem
+  linhas, o texto é "Nenhuma alteração neste recorte."
+- ✅ **P2.7 — Cenário padrão.** Qual cenário a tela abre por padrão (estiagem ou
   inundação)? Muda conforme a época do ano?
+  **Resposta do CEMOA:** Abre em estiagem (vazante). Não muda com a época do
+  ano. Inundação só quando o operador escolhe.
 
 ---
 
@@ -735,20 +853,36 @@ classifica alerta; quem classifica é o Painel de Alertas.
 
 ### Pendências da Meteorologia
 
-- ❓ **P3.1 — Numeração do aviso de 4 h.** Hoje o último código fica só no
+- ✅ **P3.1 — Numeração do aviso de 4 h.** Hoje o último código fica só no
   navegador de quem emitiu; dois postos podem gerar o mesmo número. No SISPDEC a
   numeração será central. Confirmar: sequência única do estado por ano?
-- ❓ **P3.2 — Lista de calhas do aviso.** O aviso usa 17 calhas (Alto/Médio/Baixo)
+  **Resposta do CEMOA:** O formato desejado é N/ANO, zerando a cada ano, numa
+  sequência única do estado. No sistema de origem o último código continua só
+  no navegador de quem emitiu. A sequência central é entrega do SISPDEC, ainda
+  não existe na origem.
+- ✅ **P3.2 — Lista de calhas do aviso.** O aviso usa 17 calhas (Alto/Médio/Baixo)
   e o boletim usa 9. As duas listas estão corretas e devem continuar diferentes?
-- ❓ **P3.3 — Fonte da previsão.** O mapa de previsão usa Open-Meteo; a ficha do
+  **Resposta do CEMOA:** Sim. As duas listas permanecem. O aviso parte a calha
+  em Alto, Médio e Baixo; o boletim usa as nove calhas.
+- ✅ **P3.3 — Fonte da previsão.** O mapa de previsão usa Open-Meteo; a ficha do
   município usa INMET Prevmet. O CEMOA aceita o Open-Meteo como fonte oficial
   do mapa?
-- ❓ **P3.4 — Aviso de 4 h x aviso de 12 h.** Emitir o de 4 h renova o de 12 h
+  **Resposta do CEMOA:** Aceita as duas, cada uma no seu lugar. Mapa de
+  previsão: Open-Meteo. Ficha do município: INMET Prevmet.
+- ✅ **P3.4 — Aviso de 4 h x aviso de 12 h.** Emitir o de 4 h renova o de 12 h
   automaticamente. É intencional?
-- ❓ **P3.5 — Histórico dos avisos.** Os avisos de 4 h precisam ficar
+  **Resposta do CEMOA:** Sim, quando há operador. A emissão do aviso de 4 h
+  também registra o aviso de 12 h. Sem operador, o PNG de 4 h é rascunho e não
+  publica o de 12 h.
+- ✅ **P3.5 — Histórico dos avisos.** Os avisos de 4 h precisam ficar
   consultáveis (lista, reimpressão do PNG)? Hoje não ficam.
-- ❓ **P3.6 — Escala de temperatura.** As faixas de cor (26/30/33/36 °C) são
+  **Resposta do CEMOA:** No sistema vigente não ficam. A emissão gera o PNG
+  na hora e não guarda lista para reimpressão.
+- ✅ **P3.6 — Escala de temperatura.** As faixas de cor (26/30/33/36 °C) são
   definição do CEMOA?
+  **Resposta do CEMOA:** São a escala vigente: abaixo de 26 °C azul, 26–30
+  verde, 30–33 amarelo, 33–36 laranja, 36 ou mais vermelho. Não criar outra
+  escala sem alterar este documento.
 
 ---
 
@@ -946,38 +1080,65 @@ CSV.
 
 ### Pendências da Gestão de Risco
 
-- ❓ **P4.1 — Pesos do IRG.** O sistema usa 0,6 × maior IRE + 0,2 × média +
+- ✅ **P4.1 — Pesos do IRG.** O sistema usa 0,6 × maior IRE + 0,2 × média +
   0,2 × IVM escalado. O caderno metodológico antigo diz 0,7 × maior IRE + 0,3 ×
   média. Qual vale?
-- ❓ **P4.2 — Posição do agravo.** O sistema soma o agravo **depois** de FE e FA.
+  **Resposta do CEMOA:** Vale a fórmula do sistema: 0,6 × maior IRE + 0,2 ×
+  média dos seis IRE + 0,2 × IVM escalado, teto 60. O peso do caderno antigo
+  não vale.
+- ✅ **P4.2 — Posição do agravo.** O sistema soma o agravo **depois** de FE e FA.
   O caderno antigo coloca o agravo **dentro**, multiplicado por FE e FA. Qual
   vale?
-- ❓ **P4.3 — FA de Estiagem e Erosão.** A documentação antiga diz FA fixo de
+  **Resposta do CEMOA:** Vale a conta do sistema: o agravo entra depois de FE
+  e FA, não dentro do produto.
+- ✅ **P4.3 — FA de Estiagem e Erosão.** A documentação antiga diz FA fixo de
   1,0 para esses eventos. O sistema usa o grau de estiagem do boletim (Baixo =
   0,30). Qual vale?
-- ❓ **P4.4 — FA de Inundação.** O sistema usa sempre "Sem alerta" (0,30), sem
+  **Resposta do CEMOA:** Vale o grau de estiagem do boletim. FA fixo de 1,0
+  não vale.
+- ✅ **P4.4 — FA de Inundação.** O sistema usa sempre "Sem alerta" (0,30), sem
   olhar o grau de inundação do boletim. Isso deve mudar na época de cheia?
-- ❓ **P4.5 — Faixa de focos de calor.** A faixa 1–4 / 5–14 / 15–39 / ≥40 foi
+  **Resposta do CEMOA:** Não muda na cheia. Inundação permanece "Sem alerta"
+  (0,30) até este documento dizer o contrário.
+- ✅ **P4.5 — Faixa de focos de calor.** A faixa 1–4 / 5–14 / 15–39 / ≥40 foi
   criada na operação e não tem validação institucional. Desde 21/10/2026 ela só
   vale para município sem sensor de ar e sem classificação manual. Manter,
   ajustar ou retirar do cálculo?
-- ❓ **P4.6 — Cores dos níveis.** A documentação antiga lista cores diferentes
+  **Resposta do CEMOA:** Manter, só quando o município não tem leitura de
+  MP2,5 e não tem classificação manual. Sensor e operador prevalecem.
+- ✅ **P4.6 — Cores dos níveis.** A documentação antiga lista cores diferentes
   das usadas no sistema. Qual paleta é a oficial (ou fica com a designer do
   DDS)?
-- ❓ **P4.7 — Cor do rebaixado.** Município rebaixado de P1 para P2 aparece como
+  **Resposta do CEMOA:** A paleta oficial é a do sistema vigente, descrita
+  neste documento. A paleta antiga não vale.
+- ✅ **P4.7 — Cor do rebaixado.** Município rebaixado de P1 para P2 aparece como
   "Alto" mas com a cor do Crítico. É intencional?
-- ❓ **P4.8 — Empate no teto de 60.** Municípios acima do teto empatam no
+  **Resposta do CEMOA:** Sim. O rótulo acompanha o nível novo; a cor guarda o
+  nível de origem enquanto o rebaixamento estiver vigente.
+- ✅ **P4.8 — Empate no teto de 60.** Municípios acima do teto empatam no
   ranking. Precisa de critério de desempate?
-- ❓ **P4.9 — Japurá e Maraã.** O caderno antigo diz que "não foram
+  **Resposta do CEMOA:** Não. Quem passa de 60 empata no teto. Não há
+  desempate.
+- ✅ **P4.9 — Japurá e Maraã.** O caderno antigo diz que "não foram
   reclassificados". O que precisa ser feito com eles?
-- ❓ **P4.10 — Recomendações por município.** Existe uma base de recomendações
+  **Resposta do CEMOA:** Entram na mesma fórmula dos demais municípios. Não
+  há reclassificação pendente. Não criar lista ou filtro só para eles.
+- ✅ **P4.10 — Recomendações por município.** Existe uma base de recomendações
   do CEMOA no sistema de origem que não é usada em nenhuma tela. Deve aparecer
   na ficha municipal?
-- ❓ **P4.11 — Atualização dos parâmetros.** Quem atualiza IVM, agravos,
+  **Resposta do CEMOA:** A base existe e nenhuma tela a mostra. Continua
+  fora da ficha até este documento criar essa regra.
+- ✅ **P4.11 — Atualização dos parâmetros.** Quem atualiza IVM, agravos,
   decretos e lista PIMF, e com que frequência? No SISPDEC isso pode virar
   cadastro.
-- ❓ **P4.12 — Pontuação logística.** Os pontos da classe de acesso são definição
+  **Resposta do CEMOA:** São arquivos fixos. Quem atualiza é o CEMOA, por
+  substituição do arquivo e registro neste documento. Não há rotina periódica
+  no sistema. No SISPDEC pode virar cadastro, com os mesmos arquivos de
+  partida.
+- ✅ **P4.12 — Pontuação logística.** Os pontos da classe de acesso são definição
   do CEMOA? Devem ser revistos?
+  **Resposta do CEMOA:** Os pontos descritos neste documento são a escala
+  vigente. Não há revisão nesta atualização.
 
 ---
 
@@ -1048,6 +1209,173 @@ excepcional de jornada e o aviso de 4 h ficam só no navegador. No SISPDEC devem
 
 ---
 
+## Próxima atualização · Zonas de influência da chuva
+
+➕ **Ainda não existe no sistema de origem.** Esta seção é a próxima grande
+atualização. Entra no projeto que já está no ar. Não cria um painel novo, não
+substitui as áreas de risco já cadastradas e não inventa estação, limiar ou
+polígono. Se um dado não existir, a tela diz a limitação e usa o que o sistema
+já tem.
+
+A análise da chuva continua no Módulo 3. A distribuição espacial e a
+exportação entram no mapa do Módulo 1.
+
+### Objetivo
+
+Separar o que cada módulo faz e ligar os dois:
+
+- o Módulo de Meteorologia analisa a chuva e entrega o resultado processado;
+- o Painel de Alertas mostra, no mapa que já existe, onde essa chuva pode
+  estar atingindo áreas de risco, e permite exportar essa região.
+
+Nenhuma zona dispara alerta oficial sozinha.
+
+### Regras
+
+**1. Meteorologia continua dona da análise.**
+
+No Módulo 3 permanecem: consulta dos pluviômetros já cadastrados; acumulados
+nos intervalos que o sistema já calcula; intensidade média, quando a série
+tiver tempo bastante para estimá-la; duração e evolução da chuva; qualidade,
+atualidade e continuidade das leituras; entrega desse resultado ao Painel de
+Alertas. O Painel não refaz essas contas. Reusa a mesma fonte e o mesmo
+resultado.
+
+**2. Camada no Painel de Alertas.**
+
+No mapa do Painel, uma camada chamada **Zonas de influência da chuva**. Ela:
+
+- usa as localizações dos pluviômetros que já existem;
+- consome o resultado processado da Meteorologia;
+- desenha uma estimativa da distribuição espacial da precipitação;
+- classifica com os limiares já vigentes neste documento;
+- sobrepõe essa geometria aos polígonos de risco já cadastrados;
+- deixa o operador ver a área potencialmente atingida e escolher polígonos e
+  setores de interesse;
+- pode ser ligada e desligada.
+
+Não cria limiar novo e não altera os atuais.
+
+**3. Metodologia espacial.**
+
+A primeira geometria é preliminar e configurável. Na ficha e na exportação ela
+se identifica como **estimativa de influência da precipitação**. A estrutura
+fica pronta para, quando houver dado, usar pluviômetros vizinhos, interpolação,
+radar ou estimativa de satélite. Essas vias não entram enquanto o dado não
+existir.
+
+Não tratar o interior de um buffer como se tivesse recebido o mesmo acumulado.
+Não aumentar o raio só porque o grau passou de Moderado para Alto, Severo ou
+Extremo. O grau continua o dos limiares vigentes; o tamanho da zona não é o
+grau. Quando a leitura não permitir um contorno confiável, a interface diz
+isso, em vez de desenhar uma zona segura.
+
+**4. Ficha da zona.**
+
+Ao selecionar uma zona, a ficha mostra o que o dado tiver:
+
+- estação ou estações relacionadas;
+- acumulado;
+- intensidade média, quando houver;
+- intervalo temporal;
+- data e hora da leitura;
+- classificação vigente;
+- método usado para gerar a geometria;
+- polígonos de risco interceptados;
+- municípios, bairros ou setores, conforme o cadastro existente;
+- qualidade e limitações da estimativa.
+
+A zona selecionada fica destacada e o mapa enquadra a extensão completa. O
+operador pode selecionar, uma a uma, as áreas de risco interceptadas. Isso não
+emite alerta oficial.
+
+**5. Exportar mapa PNG.**
+
+Ação **Exportar mapa PNG** no Painel de Alertas. A imagem é o mapa da região
+selecionada, montado para boletim e relatório, não um recorte da tela com
+botões por cima. Em alta resolução, com a zona inteira no quadro. Leva:
+
+- geometria da zona estimada;
+- polígonos de risco interceptados;
+- identificação territorial, quando houver;
+- pluviômetro ou estações relacionadas;
+- classificação, acumulado e intervalo;
+- data e hora de referência;
+- legenda e escala;
+- norte;
+- fonte dos dados;
+- nota de que a zona é estimada, quando for o caso.
+
+**6. Exportar zona KMZ.**
+
+Ação **Exportar zona KMZ**. O arquivo traz a geometria que o mapa usou, para
+abrir em programa geográfico (Google Earth e equivalentes). Dá para exportar
+uma zona, várias zonas, e, quando o operador pedir, os polígonos de risco
+interceptados. Metadados disponíveis: estação, acumulado, classificação,
+período, data e método. Geometrias válidas, coordenadas no sistema adequado e
+cores das classes já vigentes. Se couber na arquitetura atual, o mesmo
+conteúdo sai também em GeoJSON. Se não couber, registra-se a limitação e não
+se cria um formato paralelo.
+
+**7. Integração.**
+
+As funções atuais dos dois módulos permanecem. Zona nova ou atualizada não
+envia alerta. A camada atualiza quando chega observação válida nova. Leitura
+velha ou insuficiente aparece como limitação, não como zona fechada. O mapa
+não ganha geometria que não ajude a leitura. Desktop e celular: ligar e
+desligar a camada, selecionar a zona e ler a ficha. No celular continua
+valendo a regra geral: nada é editável; exportar é consulta, não classificação.
+
+### Quem pode fazer o quê
+
+- Ver a camada, selecionar a zona, ler a ficha, exportar PNG e KMZ — operador
+  autenticado no desktop; no celular, a mesma consulta, sem gravar alerta.
+- Classificar ou emitir alerta — continua só pelo fluxo já descrito no
+  Módulo 1. A zona não é um atalho.
+
+### Atualização
+
+| O quê | Frequência |
+| --- | --- |
+| Resultado de chuva usado pela zona | o mesmo ritmo já vigente da Meteorologia e do CEMADEN |
+| Geometria da zona | quando chega observação válida nova |
+| Leitura velha ou insuficiente | não desenha zona confiável; a ficha diz a limitação |
+
+### O que grava
+
+Nada de alerta. PNG e KMZ são arquivos baixados pelo operador. Não há envio
+automático.
+
+### Fontes
+
+As que o sistema já usa: pluviômetros e acumulados do Módulo 3, limiares deste
+documento, polígonos e setores de risco já cadastrados. Nenhuma estação, faixa
+ou polígono novo entra com esta atualização.
+
+### Testes de aceitação
+
+1. Acumulado e intensidade continuam calculados na Meteorologia.
+2. O Painel consome esse resultado e não repete a conta.
+3. A camada usa os pluviômetros e os polígonos de risco que já existem.
+4. A classificação usa os limiares vigentes, sem faixa nova.
+5. O operador seleciona uma região potencialmente atingida.
+6. O mapa enquadra a zona inteira.
+7. O PNG sai com qualidade de boletim, legenda, escala e norte, sem botões da
+   tela.
+8. O KMZ abre em programa geográfico com a geometria desenhada no mapa.
+9. Desktop e celular: ligar a camada, selecionar e ler a ficha.
+10. Classificar, fila, som, boletim, avisos e gestão de risco seguem como
+    estão neste documento.
+
+### Entrega
+
+A atualização entra no projeto existente. O registro da entrega lista o que
+foi reusado, a metodologia espacial adotada e os testes acima. Se faltar
+dado para um método mais fino, a entrega fica na geometria preliminar
+configurável e escreve a limitação aqui, com data.
+
+---
+
 ## Modelo para módulo novo
 
 Copie este bloco, troque os textos entre `<>` e preencha. Se algo não se
@@ -1093,3 +1421,9 @@ aplica, escreva "não se aplica" em vez de apagar o item.
 | --- | --- | --- | --- |
 | 21/10/2026 | DDS | Todos | Levantamento inicial a partir do sistema de origem (versão de 19/10/2026), com pendências para o CEMOA. |
 | 21/10/2026 | DDS | Gerais, Painel, Meteorologia, Risco | Conferência com a versão 9a7b1a7 do sistema de origem. **Regras novas:** faixa global de acumulado de chuva, som de chuva severa (substitui o som de vencimento e o de fim do aviso de 12 h), relógio de jornada, resumo da situação no Painel, camada de vento no Incêndio, passagem de plantão em formato de documento com ciência. **Regra alterada:** fator de alerta de Incêndio na Gestão de Risco (sensor e operador prevalecem sobre focos); camada de focos passa a começar desligada. **Só visual (sem mudança de regra):** cartões de totais mostram só a quantidade e o percentual, cor do Moderado legível em fundo claro, lista e fila mais compactas. Pendências novas: G4, P1.12 a P1.15. |
+| 22/10/2026 | CEMOA | Documento mestre | Este arquivo passa a ser o documento mestre da plataforma (versão 0adae65). **Respostas:** G1 a G4, P1.1 a P1.15, P2.1 a P2.7, P3.1 a P3.6 e P4.1 a P4.12. Onde o caderno antigo divergia, vale o sistema vigente. **Regras alteradas:** aviso de ar crítica some em 7 s; som só de chuva severa ou extrema, sem botão de teste e sem repetir o mesmo grau; sala de situação com os graus só na faixa do topo; vento corre para onde sopra; cota da ficha sem o grau de inundação. **Só visual:** rodapé dos cartões do boletim só com a porcentagem; ponto do sensor de ar menor. **Próxima atualização (ainda não construída):** zonas de influência da chuva no Painel, com ficha, PNG e KMZ, sem limiar novo e sem alerta automático. |
+| 22/10/2026 | CEMOA | Gerais | Respostas de G2, G3 e G4 revistas pelo CEMOA e levadas para "Quem pode fazer o quê". **Papéis:** meteorologista plantonista, meteorologista expediente, geólogo de expediente, chefe, subchefe, operacional e operador IDAP. **Quadro:** Barroso e Hirana (09–16); Ananda (09–16); meteorologista expediente 09–16; meteorologistas Lenizia, Luan, Karoline, Gustavo e Adriana em turnos 07–19 e 19–07; geólogos Igor e Thayná (09–16); IDAP Aldeci, Andreia, Albarado e Galvão (07–19 e 19–07). **Postos:** o teto de 6 era limitação técnica; vários operadores entram ao mesmo tempo, e só operador autenticado classifica ou edita. O sistema de origem ainda não tem esses papéis, o turno 19–07 no relógio nem a retirada do teto. |
+| 22/10/2026 | CEMOA | Gerais | Escala dos meteorologistas: entre Lenizia, Luan, Karoline, Gustavo e Adriana, um fica no expediente 09–16 no mês e os outros quatro no plantão. No mês seguinte, outro assume o expediente e quem saiu volta ao plantão. O documento não fixa quem está no expediente neste mês. |
+| 22/10/2026 | CEMOA | Gerais | Expediente de outubro/2026: FC Karoline Pereira (09–16). Lenizia, Luan, Gustavo e Adriana no plantão. |
+| 22/10/2026 | CEMOA | Gerais | O relógio passou a aplicar a troca mensal e o turno 19–07. Em outubro/2026 a Karoline fica no expediente 09–16. Os outros meteorologistas veem Plantão 07–19 e, das 19 às 07, Plantão 19–07. A ordem da troca é Gustavo (novembro/2026), Adriana (dezembro), Lenizia (janeiro/2027), Luan (fevereiro) e de novo a Karoline. |
+| 22/10/2026 | CEMOA | Gerais | As escalas publicadas de outubro/2026 substituem a fila mensal. Meteorologia: Karoline no administrativo; turnos de 12 h nas equipes A Luan, B Lenizia, C Adriana e D Gustavo (1º turno DBAC, 2º turno CDBA). Alertas: 24 h das 07 às 07 nas equipes A Albarado, B Aldeci, C Galvão e D Andréia, com a modificação dos dias 13 e 14. Quem não está escalado vê folga; a equipe seguinte vê sobreaviso. |
