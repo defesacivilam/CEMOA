@@ -57,6 +57,7 @@
 - [Anexo B · O que cada módulo grava](#anexo-b--o-que-cada-módulo-grava)
 - [Anexo C · Frequência de atualização](#anexo-c--frequência-de-atualização)
 - [Zonas de influência da chuva](#zonas-de-influência-da-chuva)
+- [Zonas administrativas e vias de alagamento](#zonas-administrativas-e-vias-de-alagamento)
 - [Modelo para módulo novo](#modelo-para-módulo-novo)
 - [Histórico de alterações](#histórico-de-alterações)
 
@@ -117,7 +118,7 @@ meteorologista plantonista, geólogo de expediente, chefe e operacional.
 | Chefe | CAP. QOABM Charlie Barroso | 09–16 |
 | Subchefe | Sgt QCPBM Hirana | 09–16 |
 | Adaptação às Mudanças Climáticas | SD QOPM Ananda | 09–16 |
-| Monitoramento · meteorologia | FC Luan (A), FC Lenizia (B), FC Adriana (C), FC Gustavo (D). FC Karoline Pereira no administrativo o mês inteiro | Outubro/2026, escala publicada. 1º turno 07–19, repetindo D B A C. 2º turno 19–07, repetindo C D B A, e acaba às 07 do dia seguinte. Em 22/10: Lenizia 07–19 e Gustavo 19–07. Luan e Adriana de folga. Fora de outubro o relógio ainda não tem a escala do mês |
+| Monitoramento · meteorologia | FC Luan (A), FC Lenizia (B), FC Adriana (C), FC Gustavo (D). FC Karoline Pereira no administrativo o mês inteiro | Outubro/2026, escala publicada. 1º turno 07–19, repetindo D B A C. 2º turno 19–07, repetindo C D B A, e acaba às 07 do dia seguinte. Em 22/10: Lenizia 07–19 e Gustavo 19–07. Luan e Adriana de folga. O mês seguinte só entra quando a escala daquele mês for publicada |
 | Monitoramento · geologia | FC Igor Jacaúna, FC Thayná Nascimento | 09–16 |
 | Alertas · operadores IDAP | Equipe A Sgt Albarado, B Sgt Aldeci Reis, C Sgt Galvão, D Sgt Andréia Amorim | Outubro/2026: serviço de 24 h, das 07 às 07, na ordem A B C D. Sobreaviso é a equipe seguinte. Em 13/10 o Albarado fica até 23h30 e a Aldeci assume; em 14/10 a Aldeci fica até 19h e o Galvão assume até 07h de 15/10. Em 22/10 o serviço é o Galvão e o sobreaviso é a Andréia |
 
@@ -126,9 +127,11 @@ expediente 09–16 o mês inteiro. Nos outros quatro meteorologistas, só quem
 está no turno do dia vê 07–19 ou 19–07; os demais veem folga.
 O 2º turno do dia acaba às 07 da manhã seguinte. Na Seção de Alertas o serviço
 é de 24 h, das 07 às 07, e o militar da equipe seguinte fica de sobreaviso. A
-escala modificada vale nos dias 13 e 14 de outubro. O mês seguinte entra no
-relógio quando a escala daquele mês for publicada. O horário excepcional
-continua só no navegador até o SISPDEC gravar no servidor.
+escala modificada vale nos dias 13 e 14 de outubro. 🔄 **Alterada em 23/10/2026.**
+O mês seguinte entra no relógio só quando a escala daquele mês for publicada.
+A ordem escrita em 22/10 (Gustavo em novembro, Adriana em dezembro, Lenizia em
+janeiro, Luan em fevereiro) não é escala publicada e não entra no relógio. O
+horário excepcional continua só no navegador até o SISPDEC gravar no servidor.
 
 ### Comportamentos comuns
 
@@ -409,22 +412,33 @@ Ao clicar num município:
 | Comunidades indígenas | Todos os produtos | Desligada |
 | Pontos de medição: pluviômetros (Chuva, Alagamento, Movimento de massa) ou sensores de MP2,5 (Incêndio) | Conforme o produto | Desligada (um único botão liga os pontos do produto ativo) |
 | Focos de calor (15 dias) | Incêndio | 🔄 Desligada. Só consulta o INPE quando ligada. Pinta em degradê vermelho pelo total de focos |
-| 🔄 Vento a 10 m | Incêndio | Ligada |
+| 🔄 Vento a 10 m | Chuva intensa e Incêndio | Ligada. O mesmo traço curto nos dois produtos |
+| ➕ Chuva caindo | Só em Chuva intensa | Ligada quando há milímetros em 1 h ou em 6 h no Amazonas |
 | Avisos meteorológicos INMET vigentes | Só em Chuva intensa | Ligada (o operador pode desligar) |
 | Setores R3/R4 (SGB/CPRM) | Movimento de massa e Erosão | Conforme o produto |
+| ➕ Manaus: bairros, curvas de 10 m, zonas e vias com alagamento | Chuva, Alagamento, Movimento de massa e o mapa do boletim | Desligadas, dentro da seção Manaus, que nasce fechada |
 
 - Pluviômetro sem coordenada publicada é posicionado na sede do município (em
   círculo, se houver vários).
 - No mapa de chuva, município **sem estação** fica cinza e não conta como Baixo.
 - **Focos de calor não mudam o grau de qualidade do ar** no painel; são camada
   de contexto (mas entram no cálculo de risco, Módulo 4).
-- 🔄 **Vento:** marcas sobre uma grade de pontos do modelo que cobre o
-  Amazonas (cerca de 2,2° de latitude por 3,2° de longitude; pontos a mais de
-  170 km de qualquer sede ficam de fora). **Os traços correm para onde o vento
-  sopra agora.** Vento mais forte completa o ciclo mais depressa. Quem pede
-  menos movimento no sistema vê a marca parada. Cor pela velocidade: azul
-  abaixo de 10 km/h, laranja de 10 a 25 km/h, vinho acima de 25 km/h. A
-  legenda mostra a hora do dado. É vento do modelo, não medido.
+- 🔄 **Vento** (alterada em 22/10/2026): a mesma marca vale para Chuva intensa
+  e Incêndio. A grade continua a do modelo sobre o Amazonas (cerca de 2,2° de
+  latitude por 3,2° de longitude; pontos a mais de 170 km de qualquer sede
+  ficam de fora). Cada ponto leva um traço curto. 🔄 **Alterada em 23/10/2026.**
+  No computador a marca fica visível, no tamanho atual, sem transparência. No
+  celular a marca fica menor. **O traço corre para onde o vento sopra agora.** O
+  ciclo não desce de 1,8 s; vento mais forte ainda termina antes, até esse
+  piso. Quem pede menos movimento no sistema vê a marca parada. Cor pela
+  velocidade: azul abaixo de 10 km/h, laranja de 10 a 25 km/h, vinho acima de
+  25 km/h. A legenda mostra a hora do dado. É vento do modelo Open-Meteo a
+  10 m, não medido. O mesmo botão liga e desliga nos dois produtos.
+- ➕ **Chuva caindo** (22/10/2026): no produto Chuva intensa, se alguma estação
+  do Amazonas tem acumulado maior que zero em 1 h ou em 6 h, o mapa mostra
+  gotas curtas e transparentes por cima do território. O acumulado de 24 h
+  sozinho não liga a animação. Some nos outros produtos e quando o sistema
+  pede menos movimento. Não entra no PNG e não emite alerta.
 - No produto Incêndio, a legenda explica: a cor do município é a classificação
   do ar e o ponto é o MP2,5 do sensor. Na sala de situação essa frase de cor
   não se repete, porque a faixa do topo já mostra os graus; fica a frase do
@@ -459,7 +473,7 @@ interno da operação" e numeração de páginas.
 | Faixa global de qualidade do ar crítica | 60 s |
 | 🔄 Faixa global de acumulado de chuva | 60 s |
 | 🔄 Verificação do som de chuva severa | 60 s |
-| 🔄 Vento (produto Incêndio) | Ao abrir o produto, sem repetir (a fonte renova a cada 30 min) |
+| 🔄 Vento (Chuva intensa e Incêndio) | Ao abrir o produto, sem repetir (a fonte renova a cada 30 min) |
 | 🔄 Focos de calor | Ao ligar a camada (a fonte renova a cada 6 h) |
 | Rodapé de saúde das fontes | 60 s |
 | Cronômetros | a cada segundo, sem consulta |
@@ -496,8 +510,7 @@ interno da operação" e numeração de páginas.
 - ✅ **P1.1 — Faixas de MP2,5.** O sistema usa 0–12 / 12,1–35,4 / 35,5–55,4 /
   55,5–150,4 / >150,4 (padrão PurpleAir). A documentação antiga do CEMOA dizia
   0–15 / 15–50 / 50–75 / 75–125 / >125. Qual vale?
-  **Resposta do CEMOA:** Vale a faixa do sistema (PurpleAir). A faixa antiga
-  não vale.
+  **Resposta do CEMOA:** As duas valem a em tempo real do Appselva e a antiga do CEMOA com níveis em 24h 
 - ✅ **P1.2 — Operador x sensor na Qualidade do ar.** Hoje, se o sensor estiver
   pior que o grau do operador, o mapa mostra o sensor (o operador não consegue
   manter um grau abaixo do sensor). A documentação antiga diz que "o operador
@@ -515,8 +528,7 @@ interno da operação" e numeração de páginas.
 - ✅ **P1.5 — Alerta vencido x mancha vencida.** O alerta do município vencido
   continua pintado até o operador agir, mas a mancha vencida some sozinha. É
   intencional?
-  **Resposta do CEMOA:** Sim. O alerta do município permanece até o operador.
-  A mancha some ao vencer.
+  **Resposta do CEMOA:** Não o alerta pode sumir junto. 
 - ✅ **P1.6 — Chuva intensa automática.** Hoje os limiares de chuva intensa só
   sugerem na fila. Deve continuar só sugestão, ou passar a pintar como
   Alagamento e Movimento de massa?
@@ -528,8 +540,7 @@ interno da operação" e numeração de páginas.
   operador.
 - ✅ **P1.8 — Erosão de margem sem gatilho.** O produto é 100% manual. Deve usar
   algum dado (velocidade de descida do rio, grau de estiagem do boletim)?
-  **Resposta do CEMOA:** Continua sem gatilho automático. Cota e grau de
-  estiagem não pintam erosão.
+  **Resposta do CEMOA:** Sim pode usar esses parâmetros por enquanto para o gatiilho de erosão
 - ✅ **P1.9 — Atualização das listas de sensores.** Quem mantém a lista de
   sensores com defeito e de sensores âncora, e com que frequência? No SISPDEC
   isso pode virar cadastro na tela.
@@ -573,6 +584,9 @@ interno da operação" e numeração de páginas.
   aparecer em outros produtos (ex.: Chuva intensa)?
   **Resposta do CEMOA:** Aceita o Open-Meteo só no Incêndio, com os traços
   animados na direção em que sopra. Não entra nos outros produtos.
+  🔄 **Alterada em 22/10/2026.** O vento passou a aparecer também em Chuva
+  intensa, com o mesmo traço curto dos dois produtos. A frase anterior, que
+  limitava o vento ao Incêndio, fica substituída por esta.
 
 ---
 
@@ -650,6 +664,54 @@ Amazonas · Médio Solimões · Negro · Purus.
 Correspondência bacia (Painel de Alertas) → calha (Boletim): Japurá → Médio
 Solimões; Rio Negro → Negro; as demais têm o mesmo nome.
 
+### Ano hidrológico
+
+🔄 **Alterada em 23/10/2026.** O ano da calha tem dois picos e, entre eles, o
+processo que leva de um ao outro. A tabela abaixo é a média. Azul é o pico de
+enchente. Laranja é o pico de vazante (estiagem). O mês em branco não é um
+terceiro regime: é o processo em curso.
+
+No Juruá, a média do pico de vazante é agosto e setembro. Depois dele, outubro,
+novembro, dezembro, janeiro, fevereiro, março e abril são de enchente; março e
+abril são o pico. A partir de maio começa o processo de vazante, até o pico de
+agosto e setembro. Nas outras calhas a fase muda de mês, mas a sequência é a
+mesma: depois do pico de vazante vem a enchente, até o pico de enchente;
+depois desse pico começa a vazante, até o pico de vazante.
+
+🔄 **Alterada em 23/10/2026.** O mês da máxima e o mês da mínima são os meses
+de pico em que aquela estação permanece na enchente ou na vazante. A máxima
+recorrente é o pico de enchente. A mínima recorrente é o pico de vazante. O
+mês sai do histórico da própria estação: em cada ano fechado, a data em que a
+cota atingiu o extremo, e o mês que mais se repete. A tabela da calha é a média
+dessa recorrência. Ela não troca o cenário no dia 1º, nem antecipa o pico que
+a estação ainda não atingiu.
+
+Depois desse período de pico começa o processo de transição. Depois da máxima,
+a estação sai da enchente e entra na vazante. Depois da mínima, sai da vazante
+e entra na enchente. O rio e a época mudam o mês, não a sequência.
+
+A tabela não traz Japurá. No boletim, Japurá continua na lista do Médio
+Solimões; isso não copia para Japurá os picos do Médio Solimões. O boletim
+lista o Negro numa calha só; a média abaixo separa Alto Negro e Baixo Negro.
+
+| Calha | Pico de enchente | Pico de vazante |
+| --- | --- | --- |
+| Juruá | março e abril | agosto e setembro |
+| Purus | março e abril | setembro e outubro |
+| Madeira | abril e maio | setembro e outubro |
+| Alto Solimões | abril e maio | setembro, outubro e novembro |
+| Médio Solimões | maio e junho | outubro e novembro |
+| Baixo Solimões | maio e junho | outubro e novembro |
+| Médio Amazonas | maio e junho | outubro e novembro |
+| Baixo Amazonas | maio e junho | outubro e novembro |
+| Alto Negro | junho e julho | janeiro e fevereiro |
+| Baixo Negro | maio e junho | outubro, novembro e dezembro |
+
+Na cheia (o processo de enchente, do fim do pico de vazante até o fim do pico
+de enchente) o fator de alerta de inundação se inverte, como em P4.4. ➕ O
+sistema de origem ainda não aplica esta regra: o fator de inundação continua
+sempre "sem alerta" (0,30).
+
 ### Ficha da estação
 
 Município, rio, calha, cota atual, variação em 24 h, estação/código, fonte da
@@ -693,20 +755,16 @@ gráfico da série com as linhas de referência e a projeção.
   do dia com as cotas de referência? Se sim, como tratar os 39 municípios sem
   referência?
   **Resposta do CEMOA:** A cota não recalcula o grau. O grau é o do boletim
-  base ou o lançado pelo operador. Município sem referência continua sem
-  leitura de grau automático.
+  base ou o lançado pelo operador. 
 - ✅ **P2.2 — Origem oficial do grau no SISPDEC.** O boletim base do sistema de
   origem está parado em 01/09/2026. No SISPDEC, quem informa o grau oficial
   diário e em que tela? (O SISPDEC já tem cadastro de cotas por calha no
   módulo CEMOA; confirmar se é o mesmo dado.)
-  **Resposta do CEMOA:** No sistema de origem o grau oficial é o boletim base
-  (referência 01/09/2026) mais o lançamento do operador. A cota ao vivo não
-  vira grau. No SISPDEC o grau oficial continua vindo desse boletim do CEMOA.
-  O cadastro de cotas por calha é a leitura, não uma segunda escala de grau.
+  **Resposta do CEMOA:** Os dados de cota são os mesmos, porém o grau de risco é estabelecido pelos técnicos do CEMOA.
 - ✅ **P2.3 — Escala sem Extremo.** O boletim usa quatro graus e o painel cinco.
   Confirmar que inundação e estiagem não têm Extremo.
   **Resposta do CEMOA:** Confirmado. Inundação e estiagem têm Baixo,
-  Moderado, Alto e Severo, mais sem leitura. Não têm Extremo.
+  Moderado, Alto e Severo por enquanto.
 - ✅ **P2.4 — Projeção de +3/+5/+7 dias.** A reta simples sobre 5 pontos é aceita
   pelo CEMOA como apoio ao plantão, ou deve sair da tela?
   **Resposta do CEMOA:** Permanece na ficha da estação como apoio, não como
@@ -725,8 +783,7 @@ gráfico da série com as linhas de referência e a projeção.
   linhas, o texto é "Nenhuma alteração neste recorte."
 - ✅ **P2.7 — Cenário padrão.** Qual cenário a tela abre por padrão (estiagem ou
   inundação)? Muda conforme a época do ano?
-  **Resposta do CEMOA:** Abre em estiagem (vazante). Não muda com a época do
-  ano. Inundação só quando o operador escolhe.
+  **Resposta do CEMOA:** Abre conforme época do ano, como estamos em período de estiagem abre primeiro a estiagem
 
 ---
 
@@ -820,7 +877,7 @@ classifica alerta; quem classifica é o Painel de Alertas.
   de operador"), sem numerar oficialmente.
 - Se a cena GOES tiver mais de 30 min, o sistema avisa e o PNG leva a hora da
   imagem, não a da emissão. Sem cena, avisa que o PNG sai sem satélite.
-- Emitir o aviso de 4 h também registra o aviso de plantão de 12 h.
+- 🔄 **Alterada em 23/10/2026.** Emitir o aviso de 4 h não registra o aviso de plantão de 12 h. Cada plantão emite no máximo 3 avisos meteorológicos; em 24 h, no máximo 6. ➕ Essa cota e a separação dos dois avisos ainda não estão no sistema de origem: lá, emitir o de 4 h ainda grava o de 12 h.
 
 ### Atualização
 
@@ -871,19 +928,14 @@ classifica alerta; quem classifica é o Painel de Alertas.
   previsão: Open-Meteo. Ficha do município: INMET Prevmet.
 - ✅ **P3.4 — Aviso de 4 h x aviso de 12 h.** Emitir o de 4 h renova o de 12 h
   automaticamente. É intencional?
-  **Resposta do CEMOA:** Sim, quando há operador. A emissão do aviso de 4 h
-  também registra o aviso de 12 h. Sem operador, o PNG de 4 h é rascunho e não
-  publica o de 12 h.
+  **Resposta do CEMOA:** Não. O aviso de 4 h não renova o de 12 h. Cada plantão emite no máximo 3 avisos meteorológicos, e 6 em 24 h. ➕ Ainda não está no sistema de origem.
 - ✅ **P3.5 — Histórico dos avisos.** Os avisos de 4 h precisam ficar
   consultáveis (lista, reimpressão do PNG)? Hoje não ficam.
   **Resposta do CEMOA:** No sistema vigente não ficam. A emissão gera o PNG
   na hora e não guarda lista para reimpressão.
 - ✅ **P3.6 — Escala de temperatura.** As faixas de cor (26/30/33/36 °C) são
   definição do CEMOA?
-  **Resposta do CEMOA:** São a escala vigente: abaixo de 26 °C azul, 26–30
-  verde, 30–33 amarelo, 33–36 laranja, 36 ou mais vermelho. Não criar outra
-  escala sem alterar este documento.
-
+  **Resposta do CEMOA:** Sim
 ---
 
 ## Módulo 4 · Gestão de Risco
@@ -1098,8 +1150,7 @@ CSV.
   não vale.
 - ✅ **P4.4 — FA de Inundação.** O sistema usa sempre "Sem alerta" (0,30), sem
   olhar o grau de inundação do boletim. Isso deve mudar na época de cheia?
-  **Resposta do CEMOA:** Não muda na cheia. Inundação permanece "Sem alerta"
-  (0,30) até este documento dizer o contrário.
+  **Resposta do CEMOA:** Muda: na cheia o cenário se inverte. A média dos picos está no ano hidrológico do Boletim. O que inicia a transição é a estação atingir o próprio pico de vazante ou de enchente, não o calendário sozinho. ➕ O sistema de origem ainda usa sempre "sem alerta" (0,30).
 - ✅ **P4.5 — Faixa de focos de calor.** A faixa 1–4 / 5–14 / 15–39 / ≥40 foi
   criada na operação e não tem validação institucional. Desde 21/10/2026 ela só
   vale para município sem sensor de ar e sem classificação manual. Manter,
@@ -1109,36 +1160,31 @@ CSV.
 - ✅ **P4.6 — Cores dos níveis.** A documentação antiga lista cores diferentes
   das usadas no sistema. Qual paleta é a oficial (ou fica com a designer do
   DDS)?
-  **Resposta do CEMOA:** A paleta oficial é a do sistema vigente, descrita
-  neste documento. A paleta antiga não vale.
+  **Resposta do CEMOA:** Fica com a designer do DDS
 - ✅ **P4.7 — Cor do rebaixado.** Município rebaixado de P1 para P2 aparece como
   "Alto" mas com a cor do Crítico. É intencional?
   **Resposta do CEMOA:** Sim. O rótulo acompanha o nível novo; a cor guarda o
   nível de origem enquanto o rebaixamento estiver vigente.
 - ✅ **P4.8 — Empate no teto de 60.** Municípios acima do teto empatam no
   ranking. Precisa de critério de desempate?
-  **Resposta do CEMOA:** Não. Quem passa de 60 empata no teto. Não há
-  desempate.
+  **Resposta do CEMOA:** Não. Quem passa de 60 empata no teto. O desempate é que o municipio com o pior IVM fica na frente
 - ✅ **P4.9 — Japurá e Maraã.** O caderno antigo diz que "não foram
   reclassificados". O que precisa ser feito com eles?
   **Resposta do CEMOA:** Entram na mesma fórmula dos demais municípios. Não
-  há reclassificação pendente. Não criar lista ou filtro só para eles.
+  há reclassificação pendente.
 - ✅ **P4.10 — Recomendações por município.** Existe uma base de recomendações
   do CEMOA no sistema de origem que não é usada em nenhuma tela. Deve aparecer
   na ficha municipal?
-  **Resposta do CEMOA:** A base existe e nenhuma tela a mostra. Continua
-  fora da ficha até este documento criar essa regra.
+  **Resposta do CEMOA:**  Continua fora da ficha até este documento criar essa regra.
 - ✅ **P4.11 — Atualização dos parâmetros.** Quem atualiza IVM, agravos,
   decretos e lista PIMF, e com que frequência? No SISPDEC isso pode virar
   cadastro.
-  **Resposta do CEMOA:** São arquivos fixos. Quem atualiza é o CEMOA, por
+  **Resposta do CEMOA:** Quem atualiza é o CEMOA, por
   substituição do arquivo e registro neste documento. Não há rotina periódica
-  no sistema. No SISPDEC pode virar cadastro, com os mesmos arquivos de
-  partida.
-- ✅ **P4.12 — Pontuação logística.** Os pontos da classe de acesso são definição
+  no sistema mas pode ser feita mensalmente ou caso tenha no SISPDEC esse registro pelo DR
+  - ✅ **P4.12 — Pontuação logística.** Os pontos da classe de acesso são definição
   do CEMOA? Devem ser revistos?
-  **Resposta do CEMOA:** Os pontos descritos neste documento são a escala
-  vigente. Não há revisão nesta atualização.
+  **Resposta do CEMOA:** Os pontos podem ser revistos.
 
 ---
 
@@ -1156,7 +1202,7 @@ CSV.
 | INMET avisos | `apiprevmet3.inmet.gov.br/avisos/ativos` | Avisos vigentes com polígono | Painel |
 | INMET Prevmet | `apiprevmet3.inmet.gov.br/previsao/{IBGE}` e `/estacao/proxima` | Previsão e estação mais próxima | Ficha do Painel |
 | INMET estações | `apitempo.inmet.gov.br/estacoes/T` e `/M` | Temperatura instantânea | Meteorologia |
-| Open-Meteo | `api.open-meteo.com/v1/forecast` | Previsão por município; 🔄 vento atual a 10 m | Meteorologia; Painel (Incêndio) |
+| Open-Meteo | `api.open-meteo.com/v1/forecast` | Previsão por município; 🔄 vento atual a 10 m | Meteorologia; Painel (Chuva intensa e Incêndio) |
 | GOES-19 · CPTEC/INPE | `satelite.cptec.inpe.br/repositoriogoes/goes19/...ams_ret_ch13_baixa/` | Imagem infravermelho canal 13 | Meteorologia, aviso 4 h |
 | MERGE · CPTEC | `ftp.cptec.inpe.br/modelos/tempo/MERGE/FIG/CLIMATOLOGY/...` | Anomalia mensal, dias secos | Meteorologia |
 | IBGE Censo 2022 | Arquivo fixo | População, sedes, comunidades, malha | Todos |
@@ -1195,7 +1241,7 @@ excepcional de jornada e o aviso de 4 h ficam só no navegador. No SISPDEC devem
 | Faixa global de ar crítico | 60 s | 1 min |
 | 🔄 Faixa global de acumulado de chuva | 60 s | 2 min |
 | 🔄 Som de chuva severa | 60 s | 2 min |
-| 🔄 Vento no Painel (Incêndio) | ao abrir o produto | 30 min |
+| 🔄 Vento no Painel (Chuva intensa e Incêndio) | ao abrir o produto | 30 min |
 | Rodapé de saúde das fontes | 60 s | — |
 | Boletim Hidrológico | 25 s | ANA 16:00 Manaus · Power BI 07:00 e 16:00 Brasília |
 | Meteorologia · chuva | 20 s | 2 min |
@@ -1218,9 +1264,9 @@ limitação e usa o que o sistema já tem.
 
 A geometria vigente fora de Manaus é um círculo de raio fixo, o mesmo para Moderado, Alto, Severo e Extremo. As opções são 5, 10 e 15 km; o padrão é 5 km. Onde o catálogo das PCDs do CEMADEN traz a coordenada, o ponto é esse. Nos demais municípios, o círculo usa a localidade que o mapa já usa ou, na falta dela, a sede municipal.
 
-Em Manaus o recorte é outro. O raio continua fixo e não cresce com o grau, mas a zona desenhada é a união dos bairros que cruzam esse raio e cuja cota mínima, medida na grade das curvas de nível SIRGAS 2000, não fica acima da cota da estação. O bairro inteiro não é tratado como se tivesse recebido o mesmo acumulado. Se a cota ou o bairro não fecharem o recorte, a zona volta ao círculo e a ficha diz isso.
+O desenho da zona, no mapa e na exportação, é sempre o raio de perigo: o círculo fixo. Ele não cresce com o grau. 🔄 **Alterada em 22/10/2026.** Cada raio tem um ponto no centro da estação e a marca dos quilômetros na borda norte. O ponto continua clicável quando dois círculos se sobrepõem. O clique abre a ficha. Se o círculo já ocupa boa parte da tela, a vista não salta; se não ocupa, o mapa aproxima o círculo. O mapa também pode ligar, à parte, os bairros de Manaus e as curvas de 10 m lidas na grade das curvas SIRGAS 2000. Essa grade tem passo de cerca de 440 m; as linhas não são as curvas originais. Em Manaus, os bairros que cruzam o raio e cuja cota mínima, medida nessa grade, não fica acima da cota da estação entram na análise. O clique num desses bairros destaca o nome e a população; não troca o raio e não emite alerta. O bairro inteiro não é tratado como se tivesse recebido o mesmo acumulado. A ficha soma a população residente de 2022 desses bairros. O número vem da agregação preliminar dos setores censitários do IBGE publicada pela Perspectiva em abril de 2024; o IBGE não publica tabela oficial de bairros. Bairro sem correspondência fica sem dado e fora da soma. Se a cota ou o bairro não fecharem a lista, a ficha diz isso e o círculo permanece.
 
-Círculo na sede, ou leitura sem hora ou com mais de 45 minutos, aparece na ficha como delimitação não confiável. A classificação reusa `rainApoio` e os limiares vigentes. Estação em Baixo não gera zona. A camada nasce desligada. PNG, KMZ e GeoJSON saem só quando o operador pede.
+Círculo na sede, ou leitura sem hora ou com mais de 45 minutos, aparece na ficha como delimitação não confiável. A classificação reusa os limiares vigentes. 🔄 **Alterada em 22/10/2026.** Movimento de massa continua medido em 24 h e alagamento em 1 h, com os mesmos milímetros. No raio de perigo e na ficha da zona, o grau para em Severo: a faixa Moderado do produto e as faixas Alto e Severo são desenhadas como Severo. Em São Paulo de Olivença, uma leitura entre 50 e 85 mm em 24 h fica Severo no raio. O mapa do município não muda: a classificação automática continua no máximo em Severo. Estação em Baixo não gera zona. A camada nasce desligada. KMZ e GeoJSON saem só quando o operador pede. O raio não gera PNG próprio. 🔄 **Alterada em 22/10/2026.**
 
 A análise da chuva continua no Módulo 3. A distribuição espacial e a
 exportação entram no mapa do Módulo 1.
@@ -1251,6 +1297,7 @@ resultado.
 No mapa do Painel, uma camada chamada **Zonas de influência da chuva**. Ela:
 
 - usa as localizações dos pluviômetros que já existem;
+- com a camada ligada, desenha no mapa só os pluviômetros que estão registrando chuva (acumulado maior que zero em 1 h ou em 6 h), com o valor ao lado do ponto;
 - consome o resultado processado da Meteorologia;
 - desenha uma estimativa da distribuição espacial da precipitação;
 - classifica com os limiares já vigentes neste documento;
@@ -1271,9 +1318,13 @@ existir.
 
 Não tratar o interior de um buffer como se tivesse recebido o mesmo acumulado.
 Não aumentar o raio só porque o grau passou de Moderado para Alto, Severo ou
-Extremo. O grau continua o dos limiares vigentes; o tamanho da zona não é o
-grau. Quando a leitura não permitir um contorno confiável, a interface diz
-isso, em vez de desenhar uma zona segura.
+Extremo. O tamanho da zona não é o grau. 🔄 **Alterada em 23/10/2026.** No raio
+de movimento de massa e de alagamento, o desenho e a ficha param em Severo:
+a faixa Moderado do produto e as faixas Alto e Severo são desenhadas como
+Severo. Chuva intensa pode continuar em Extremo. O mapa do município não usa
+esse recorte e a classificação automática continua no máximo em Severo. Quando
+a leitura não permitir um contorno confiável, a interface diz isso, em vez de
+desenhar uma zona segura.
 
 **4. Ficha da zona.**
 
@@ -1290,26 +1341,16 @@ Ao selecionar uma zona, a ficha mostra o que o dado tiver:
 - municípios, bairros ou setores, conforme o cadastro existente;
 - qualidade e limitações da estimativa.
 
-A zona selecionada fica destacada e o mapa enquadra a extensão completa. O
-operador pode selecionar, uma a uma, as áreas de risco interceptadas. Isso não
-emite alerta oficial.
+A zona selecionada fica destacada. O mapa aproxima o círculo quando ele ainda não ocupa boa parte da tela. O
+operador pode selecionar, uma a uma, as áreas de risco interceptadas. A ficha
+do município continua aberta junto com a do bairro e a do raio; as três ficam
+por cima do mapa e não mudam o enquadramento. Isso não emite alerta oficial.
 
-**5. Exportar mapa PNG.**
+**5. PNG do raio.**
 
-Ação **Exportar mapa PNG** no Painel de Alertas. A imagem é o mapa da região
-selecionada, montado para boletim e relatório, não um recorte da tela com
-botões por cima. Em alta resolução, com a zona inteira no quadro. Leva:
-
-- geometria da zona estimada;
-- polígonos de risco interceptados;
-- identificação territorial, quando houver;
-- pluviômetro ou estações relacionadas;
-- classificação, acumulado e intervalo;
-- data e hora de referência;
-- legenda e escala;
-- norte;
-- fonte dos dados;
-- nota de que a zona é estimada, quando for o caso.
+🔄 **Alterada em 22/10/2026.** O raio de perigo não gera PNG. KMZ e GeoJSON
+continuam na ficha. O PNG institucional dos outros mapas (painel, boletim,
+meteorologia e gestão de risco) permanece.
 
 **6. Exportar zona KMZ.**
 
@@ -1318,9 +1359,7 @@ abrir em programa geográfico (Google Earth e equivalentes). Dá para exportar
 uma zona, várias zonas, e, quando o operador pedir, os polígonos de risco
 interceptados. Metadados disponíveis: estação, acumulado, classificação,
 período, data e método. Geometrias válidas, coordenadas no sistema adequado e
-cores das classes já vigentes. Se couber na arquitetura atual, o mesmo
-conteúdo sai também em GeoJSON. Se não couber, registra-se a limitação e não
-se cria um formato paralelo.
+cores das classes já vigentes. O mesmo conteúdo também sai em GeoJSON.
 
 **7. Integração.**
 
@@ -1328,12 +1367,17 @@ As funções atuais dos dois módulos permanecem. Zona nova ou atualizada não
 envia alerta. A camada atualiza quando chega observação válida nova. Leitura
 velha ou insuficiente aparece como limitação, não como zona fechada. O mapa
 não ganha geometria que não ajude a leitura. Desktop e celular: ligar e
-desligar a camada, selecionar a zona e ler a ficha. No celular continua
-valendo a regra geral: nada é editável; exportar é consulta, não classificação.
+desligar a camada, selecionar a zona e ler a ficha. 🔄 **Alterada em 22/10/2026.**
+No celular a ficha do raio fica na base do mapa e ocupa menos da metade da
+área, para o círculo continuar visível. Bairro, pluviômetro, via e zona
+administrativa ficam na parte de cima e não cobrem essa ficha. O ponto central
+tem área de toque maior. A chuva que cai no mapa fica só sobre o mapa, com
+menos gotas, e a marca de vento fica menor. No celular continua valendo a
+regra geral: nada é editável; exportar é consulta, não classificação.
 
 ### Quem pode fazer o quê
 
-- Ver a camada, selecionar a zona, ler a ficha, exportar PNG e KMZ — operador
+- Ver a camada, selecionar a zona, ler a ficha, exportar KMZ e GeoJSON — operador
   autenticado no desktop; no celular, a mesma consulta, sem gravar alerta.
 - Classificar ou emitir alerta — continua só pelo fluxo já descrito no
   Módulo 1. A zona não é um atalho.
@@ -1348,8 +1392,8 @@ valendo a regra geral: nada é editável; exportar é consulta, não classifica�
 
 ### O que grava
 
-Nada de alerta. PNG e KMZ são arquivos baixados pelo operador. Não há envio
-automático.
+Nada de alerta. KMZ e GeoJSON são arquivos baixados pelo operador. Não há envio
+automático. O raio não gera PNG.
 
 ### Fontes
 
@@ -1364,9 +1408,8 @@ ou polígono novo entra com esta atualização.
 3. A camada usa os pluviômetros e os polígonos de risco que já existem.
 4. A classificação usa os limiares vigentes, sem faixa nova.
 5. O operador seleciona uma região potencialmente atingida.
-6. O mapa enquadra a zona inteira.
-7. O PNG sai com qualidade de boletim, legenda, escala e norte, sem botões da
-   tela.
+6. 🔄 **Alterada em 23/10/2026.** O mapa aproxima o círculo só quando ele ainda não ocupa boa parte da tela.
+7. O raio não gera PNG. KMZ e GeoJSON levam o círculo desenhado no mapa.
 8. O KMZ abre em programa geográfico com a geometria desenhada no mapa.
 9. Desktop e celular: ligar a camada, selecionar e ler a ficha.
 10. Classificar, fila, som, boletim, avisos e gestão de risco seguem como
@@ -1378,6 +1421,15 @@ A atualização entra no projeto existente. O registro da entrega lista o que
 foi reusado, a metodologia espacial adotada e os testes acima. Se faltar
 dado para um método mais fino, a entrega fica na geometria preliminar
 configurável e escreve a limitação aqui, com data.
+
+---
+
+## Zonas administrativas e vias de alagamento
+
+➕ Camadas opcionais do mapa. Bairros, curvas de nível, zonas e vias nascem desligadas e nenhuma emite alerta. As quatro ficam na seção **Manaus** do menu de camadas. A seção nasce fechada. Quando alguma está ligada, o cabeçalho mostra quantas estão ligadas.
+
+- **Zonas de Manaus.** Seis polígonos dos arquivos `Zona_Norte`, `Zona_Sul`, `Zona_Leste`, `Zona_Oeste`, `Zona_Centro_Sul` e `Zona_Centro_Oeste`. Esses arquivos não trazem atributos. A ficha calcula a área do polígono e junta os bairros cujo centro cai dentro dele: quantidade, população do Censo 2022 quando existe, e cotas mínima e média já gravadas no bairro. O clique no nome do bairro abre a ficha do bairro.
+- **Vias com alagamento.** Só entram avenidas nomeadas em reportagem ou nota da Seminf e encontradas no cadastro `ARRUAMENTO_MANAUS`: Torquato Tapajós, Max Teixeira, André Araújo e Djalma Batista (G1, 19/03/2025); Autaz Mirim (Seminf, abril de 2026); Avenida Brasil (Em Tempo, 25/03/2026). A linha é o eixo do cadastro de fevereiro de 2000 e janeiro de 2002, não o trecho medido do alagamento. O arquivo inteiro do arruamento não vai para o navegador.
 
 ---
 
@@ -1432,5 +1484,9 @@ aplica, escreva "não se aplica" em vez de apagar o item.
 | 22/10/2026 | CEMOA | Gerais | Expediente de outubro/2026: FC Karoline Pereira (09–16). Lenizia, Luan, Gustavo e Adriana no plantão. |
 | 22/10/2026 | CEMOA | Gerais | O relógio passou a aplicar a troca mensal e o turno 19–07. Em outubro/2026 a Karoline fica no expediente 09–16. Os outros meteorologistas veem Plantão 07–19 e, das 19 às 07, Plantão 19–07. A ordem da troca é Gustavo (novembro/2026), Adriana (dezembro), Lenizia (janeiro/2027), Luan (fevereiro) e de novo a Karoline. |
 | 22/10/2026 | CEMOA | Gerais | As escalas publicadas de outubro/2026 substituem a fila mensal. Meteorologia: Karoline no administrativo; turnos de 12 h nas equipes A Luan, B Lenizia, C Adriana e D Gustavo (1º turno DBAC, 2º turno CDBA). Alertas: 24 h das 07 às 07 nas equipes A Albarado, B Aldeci, C Galvão e D Andréia, com a modificação dos dias 13 e 14. Quem não está escalado vê folga; a equipe seguinte vê sobreaviso. |
-| 22/10/2026 | CEMOA | Painel de Alertas | Zonas de influência da chuva no mapa existente. A Meteorologia continua dona do acumulado e da intensidade. O Painel só desenha. Geometria preliminar: círculo de 5, 10 ou 15 km, igual em todos os graus, na posição que o mapa já usa para o pluviômetro. Sem limiar novo e sem alerta automático. Ficha, PNG enquadrado, KMZ e GeoJSON. |
-| 22/10/2026 | CEMOA | Painel de Alertas | Manaus passa a usar a coordenada do catálogo CEMADEN e o recorte pelos bairros abaixo da cota lida nas curvas de nível. O botão Pluviômetros CEMADEN volta a desenhar as estações quando a camada é ligada. |
+| 22/10/2026 | CEMOA | Painel de Alertas | Zonas de influência da chuva no mapa existente. A Meteorologia continua dona do acumulado e da intensidade. O Painel só desenha. Geometria: círculo de 5, 10 ou 15 km, igual em todos os graus, na posição que o mapa já usa para o pluviômetro. Sem limiar novo e sem alerta automático. Ficha, KMZ e GeoJSON. |
+| 22/10/2026 | CEMOA | Painel de Alertas | Manaus usa a coordenada do catálogo CEMADEN e o recorte por bairros abaixo da cota. O raio fica acima do município, com contorno branco, ponto central e marca de km. Bairros, curvas, zonas e vias ficam na seção Manaus, desligadas. Chuva intensa anima gotas quando há mm em 1 h ou 6 h. O vento a 10 m também vale nesse mapa. No raio de massa e alagamento o desenho para em Severo. O raio não gera PNG. |
+| 23/10/2026 | CEMOA | Documento mestre | Arestas de texto alinhadas a regras já decididas: o README deixa de tratar a zona como não construída; a metodologia do raio repete que massa e alagamento param em Severo; GeoJSON deixa de ser condicional. A linha solta do histórico de 22/10 voltou para a tabela. |
+| 23/10/2026 | CEMOA | Meteorologia, Risco, Painel, Gerais | Respostas do CEMOA. O aviso de 4 h não registra o de 12 h; no máximo 3 avisos por plantão e 6 em 24 h, ainda não construído na origem. Na cheia o fator de inundação se inverte. No computador a marca de vento fica visível; no celular, menor. O mapa só aproxima o círculo quando ele ainda não ocupa a tela. Novembro não entra no relógio até a escala daquele mês ser publicada. |
+| 23/10/2026 | CEMOA | Boletim, Risco | Ano hidrológico. A tabela é a média do pico de enchente e do pico de vazante por calha. Entre os picos corre o processo. No Juruá, depois de agosto e setembro vêm outubro a abril de enchente (março e abril no pico) e maio abre a vazante. O que rege a estação é a tendência depois que ela atinge o próprio pico. Japurá não herda o Médio Solimões. Ainda não construído na origem. |
+| 23/10/2026 | CEMOA | Boletim | O mês da máxima recorrente é o pico em que a estação permanece na enchente. O mês da mínima recorrente é o pico em que permanece na vazante. Depois desse período começa a transição: da enchente para a vazante, ou da vazante para a enchente, conforme o rio e a época. |

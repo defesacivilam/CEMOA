@@ -6,7 +6,7 @@ Civil do Amazonas). A regra vale primeiro aqui. O sistema de origem
 
 - [Regras de negócio](cemoa-centro-monitoramento-regras.md): Painel de
   Alertas, Boletim Hidrológico, Meteorologia e Gestão de Risco, as respostas
-  já dadas e a próxima atualização ainda não construída.
+  já dadas. As zonas de influência da chuva já estão no Painel, com ficha, KMZ e GeoJSON, sem PNG próprio do raio e sem alerta automático.
 
 A seção "Como usar este documento", no início do arquivo de regras, explica
 como alterar uma regra, responder uma pendência ou propor um módulo novo.
